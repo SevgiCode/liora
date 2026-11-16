@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f3ec" />
+    <meta
+      name="description"
+      content="Liora House — Ege'nin sakinliğinde, kendinize ait bir mola."
+    />
+    <title>Liora House | Boutique Hotel</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
+
+      :root {
+        --paper: #f6f3ec;
+        --ink: #29362e;
+        --muted: #77796f;
+        --olive: #667357;
+        --line: #deded2;
+        --white: #fff;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      body,
+      button,
+      input,
+      select {
+        font-size: 15px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+      button,
+      a,
+      input,
+      select {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        cursor: pointer;
+      }
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 400;
+      }
+      :focus-visible {
+        outline: 3px solid #b08b50;
+        outline-offset: 5px;
+      }
+      .container {
+        width: min(1240px, 90%);
+        margin-inline: auto;
+      }
+      .eyebrow {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        padding: 17px 24px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--white);
+        font-size: 12px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .button:hover {
+        background: var(--olive);
+        transform: translateY(-2px);
+      }
+      .button.light {
+        border-color: #ffffff80;
+        background: transparent;
+        color: white;
+      }
+      .button.light:hover {
+        background: #ffffff18;
+      }
+      .section {
+        padding: 110px 0;
+      }
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(36px, 4.4vw, 62px);
+        line-height: 1.15;
+        letter-spacing: -1.6px;
+      }
+      .text-link {
+        display: inline-flex;
+        gap: 24px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid currentColor;
+        font-size: 12px;
+      }
+
+      /* Navigation */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(246, 243, 236, 0.96);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .logo {
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .logo-name {
+        font-family: var(--serif);
+        font-size: 31px;
+        line-height: 1;
+        letter-spacing: 6px;
+      }
+      .logo-sub {
+        margin-top: 8px;
+        font-size: 8px;
+        letter-spacing: 3px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        align-items: center;
+      }
+      .nav-links > a:not(.button) {
+        font-size: 12px;
+      }
+      .nav-links > a:not(.button):hover {
+        color: var(--olive);
+      }
+      .menu-toggle {
+        display: none;
+        border: 1px solid var(--line);
+        background: transparent;
+        padding: 10px 14px;
+        color: var(--ink);
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        min-height: 680px;
+        min-height: min(800px, 85svh);
+        display: flex;
+        align-items: center;
+        isolation: isolate;
+        color: white;
+      }
+      .hero-image,
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .hero::after {
+        content: "";
+        background: linear-gradient(90deg, #15271fc2, #17281e25);
+      }
+      .hero-content {
+        padding-block: 100px 140px;
+      }
+      .hero .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .hero .eyebrow::before {
+        content: "";
+        width: 35px;
+        height: 1px;
+        background: #ffffffa0;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(56px, 7.8vw, 108px);
+        line-height: 1.05;
+        letter-spacing: -3px;
+        margin: 28px 0;
+        max-width: 850px;
+      }
+      h1 em {
+        font-weight: 400;
+      }
+      .hero-description {
+        max-width: 370px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #ffffffe0;
+        margin-bottom: 30px;
+      }
+      .hero-caption {
+        position: absolute;
+        bottom: 32px;
+        right: 5%;
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      /* Booking */
+      .booking-wrap {
+        position: relative;
+        margin-top: -35px;
+        z-index: 2;
+      }
+      .booking {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        gap: 26px;
+        align-items: end;
+        padding: 30px 36px;
+        background: white;
+        box-shadow: 0 14px 50px #25352b0c;
+      }
+      .field label {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 9px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .field input,
+      .field select {
+        width: 100%;
+        min-height: 36px;
+        padding: 0 0 9px;
+        color: var(--ink);
+        background: white;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        border-radius: 0;
+      }
+      .booking .button {
+        min-height: 52px;
+      }
+      .booking-status {
+        padding: 16px 24px;
+        margin: 0;
+        background: #e8eddf;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .booking-status:empty {
+        display: none;
+      }
+
+      /* Introduction */
+      .intro {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: center;
+        gap: 100px;
+      }
+      .intro-visual {
+        position: relative;
+        padding: 0 25px 25px 0;
+      }
+      .intro-visual::after {
+        content: "";
+        position: absolute;
+        inset: 25px 0 0 25px;
+        border: 1px solid #bcc2ad;
+        z-index: -1;
+      }
+      .intro-visual img {
+        height: 530px;
+      }
+      .intro-copy .eyebrow {
+        color: var(--olive);
+        margin-bottom: 24px;
+      }
+      .intro-copy > p:not(.eyebrow) {
+        max-width: 460px;
+        color: var(--muted);
+        line-height: 1.9;
+        margin-bottom: 28px;
+      }
+      .intro-details {
+        display: flex;
+        gap: 45px;
+        margin-top: 38px;
+        padding-top: 25px;
+        border-top: 1px solid var(--line);
+      }
+      .intro-details span {
+        display: block;
+      }
+      .intro-details .number {
+        font-family: var(--serif);
+        font-size: 32px;
+      }
+      .intro-details .label {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      /* Rooms */
+      .rooms {
+        background: #eeeee5;
+      }
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 25px;
+        margin-bottom: 42px;
+      }
+      .section-heading .section-title {
+        margin-bottom: 0;
+      }
+      .section-heading .eyebrow {
+        color: var(--olive);
+        margin-bottom: 18px;
+      }
+      .room-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+      .room-image {
+        position: relative;
+        overflow: hidden;
+      }
+      .room-image img {
+        height: 340px;
+        transition: transform 0.6s;
+      }
+      .room-card:hover img {
+        transform: scale(1.045);
+      }
+      .room-tag {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        padding: 9px 12px;
+        background: var(--paper);
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+      .room-content {
+        padding-top: 22px;
+      }
+      .room-meta {
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+      .room-content h3 {
+        margin: 12px 0 18px;
+        font-family: var(--serif);
+        font-size: 29px;
+      }
+      .room-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #d5d8cb;
+        padding-top: 18px;
+        gap: 12px;
+      }
+      .price {
+        font-size: 18px;
+      }
+      .price small {
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .room-select {
+        border: 0;
+        padding: 8px 0 8px 10px;
+        background: transparent;
+        font-size: 12px;
+        color: var(--ink);
+      }
+
+      /* Experiences */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+      .experience {
+        position: relative;
+        min-height: 440px;
+        display: flex;
+        align-items: end;
+        overflow: hidden;
+        color: white;
+        isolation: isolate;
+      }
+      .experience img,
+      .experience::after {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .experience::after {
+        content: "";
+        background: linear-gradient(transparent 20%, #14241bd6);
+      }
+      .experience-copy {
+        padding: 35px;
+      }
+      .experience h3 {
+        font-family: var(--serif);
+        font-size: 36px;
+        margin: 12px 0;
+      }
+      .experience p:last-child {
+        max-width: 330px;
+        margin-bottom: 0;
+        font-size: 13px;
+        line-height: 1.8;
+        color: #ffffffe0;
+      }
+
+      /* Closing / footer */
+      .closing {
+        padding: 85px 0;
+        background: #dfe4d6;
+        text-align: center;
+      }
+      .closing .section-title {
+        margin: 20px 0;
+      }
+      .closing p:not(.eyebrow) {
+        color: #626e5b;
+        line-height: 1.8;
+        margin-bottom: 28px;
+      }
+      footer {
+        padding: 65px 0 24px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 50px;
+      }
+      .footer-note {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.9;
+      }
+      .footer-title {
+        margin-bottom: 20px;
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 10px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      @media (min-width: 1800px) {
+        .hero {
+          min-height: 850px;
+        }
+      }
+      @media (max-width: 1000px) {
+        .intro {
+          gap: 45px;
+        }
+        .booking {
+          gap: 18px;
+          padding: 26px;
+        }
+        .room-image img {
+          height: 270px;
+        }
+        .nav-links {
+          gap: 20px;
+        }
+        .room-content h3 {
+          font-size: 25px;
+        }
+      }
+      @media (max-width: 760px) {
+        .nav {
+          height: 76px;
+        }
+        .logo-name {
+          font-size: 27px;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 76px;
+          left: 0;
+          right: 0;
+          background: var(--paper);
+          padding: 24px 5% 30px;
+          flex-direction: column;
+          align-items: stretch;
+          border-bottom: 1px solid var(--line);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links > a:not(.button) {
+          padding: 8px 0;
+        }
+        .hero {
+          min-height: 650px;
+        }
+        h1 {
+          font-size: clamp(52px, 12vw, 78px);
+          letter-spacing: -2px;
+        }
+        .hero-content {
+          padding-block: 80px 120px;
+        }
+        .hero-description {
+          max-width: 300px;
+        }
+        .hero-caption {
+          font-size: 8px;
+        }
+        .booking {
+          grid-template-columns: 1fr 1fr;
+          gap: 22px;
+          padding: 24px;
+        }
+        .booking .button {
+          width: 100%;
+        }
+        .section {
+          padding: 75px 0;
+        }
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 45px;
+        }
+        .intro-visual img {
+          height: 420px;
+        }
+        .intro-copy > p:not(.eyebrow) {
+          max-width: none;
+        }
+        .section-heading {
+          align-items: start;
+          flex-direction: column;
+        }
+        .room-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .room-image img {
+          height: 370px;
+        }
+        .experience-grid {
+          grid-template-columns: 1fr;
+        }
+        .experience {
+          min-height: 400px;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-brand {
+          grid-column: 1 / -1;
+        }
+        .footer-bottom {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 400px) {
+        .booking {
+          grid-template-columns: 1fr;
+        }
+        .room-image img {
+          height: 300px;
+        }
+        .intro-details {
+          gap: 28px;
+        }
+        .experience-copy {
+          padding: 25px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="container nav" aria-label="Ana menü">
+        <a href="#" class="logo" aria-label="Liora House ana sayfa">
+          <span class="logo-name">LIORA</span>
+          <span class="logo-sub">HOUSE · ALAÇATI</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          Menü
+        </button>
+
+        <div class="nav-links" id="navigation">
+          <a href="#hikayemiz">Hikâyemiz</a>
+          <a href="#odalar">Odalar & Süitler</a>
+          <a href="#deneyimler">Deneyimler</a>
+          <a href="#iletisim">İletişim</a>
+          <a href="#rezervasyon" class="button"
+            >Yerini ayırt <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=2400&q=85"
+          alt="Doğal renklerle dekore edilmiş ferah otel odası"
+          fetchpriority="high"
+        />
+
+        <div class="container hero-content">
+          <p class="eyebrow">Biraz yavaşla. Buradasın.</p>
+          <h1 id="hero-title">Hayatın en güzel<br />hâli, <em>sakince.</em></h1>
+          <p class="hero-description">
+            Taş duvarlar, zeytin ağaçları ve telaşsız sabahlar. Alaçatı’da
+            kendine ait bir mola.
+          </p>
+          <a href="#odalar" class="button light">
+            Liora’yı keşfet <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="hero-caption">ALAÇATI, İZMİR · EGE’YE AİT</div>
+      </section>
+
+      <section
+        class="container booking-wrap"
+        id="rezervasyon"
+        aria-label="Rezervasyon talebi"
+      >
+        <form class="booking" id="booking-form">
+          <div class="field">
+            <label for="checkin">Giriş tarihi</label>
+            <input id="checkin" name="checkin" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="checkout">Çıkış tarihi</label>
+            <input id="checkout" name="checkout" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="guests">Misafir sayısı</label>
+            <select id="guests" name="guests">
+              <option value="1">1 misafir</option>
+              <option value="2" selected>2 misafir</option>
+              <option value="3">3 misafir</option>
+            </select>
+          </div>
+
+          <button type="submit" class="button">
+            Konaklamanı planla <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+        <p
+          id="booking-status"
+          class="booking-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section class="section container intro" id="hikayemiz">
+        <div class="intro-visual">
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+            alt="Doğal dokular ve sıcak tonlarla tasarlanmış dinlenme alanı"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="intro-copy">
+          <p class="eyebrow">Küçük bir otel, güzel bir hikâye</p>
+          <h2 class="section-title">
+            Bir konaklamadan<br />biraz daha fazlası.
+          </h2>
+          <p>
+            Liora, uzun kahvaltılara, açık pencerelerden gelen esintiye ve
+            plansız geçen günlere duyduğumuz sevgiyle doğdu.
+          </p>
+          <p>
+            Her odasında farklı bir detay, her köşesinde tanıdık bir sıcaklık
+            var. Burada misafir olmanın en güzel yanı, kendini evinde hissetmek.
+          </p>
+          <a href="#deneyimler" class="text-link">
+            Liora’da yaşam <span aria-hidden="true">↗</span>
+          </a>
+
+          <div class="intro-details">
+            <div>
+              <span class="number">12</span>
+              <span class="label">Özgün oda</span>
+            </div>
+            <div>
+              <span class="number">01</span>
+              <span class="label">Saklı bahçe</span>
+            </div>
+            <div>
+              <span class="number">∞</span>
+              <span class="label">Küçük mutluluk</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section rooms" id="odalar">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sana ait bir köşe</p>
+              <h2 class="section-title">Güzel günler, güzel odalar.</h2>
+            </div>
+            <a href="#rezervasyon" class="text-link">
+              Konaklamanı planla <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="room-grid">
+            <article class="room-card">
+              <div class="room-image">
+                <img
+                  src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80"
+                  alt="Büyük yatak ve yumuşak renklerle tasarlanmış Classic oda"
+                  loading="lazy"
+                />
+                <span class="room-tag">SADE & HUZURLU</span>
+              </div>
+              <div class="room-content">
+                <div class="room-meta">
+                  24 M² · 2 MİSAFİR · ÇİFT KİŞİLİK YATAK
+                </div>
+                <h3>Classic Oda</h3>
+                <div class="room-bottom">
+                  <span class="price"
+                    >₺5.200 <small>/ geceden başlayan</small></span
+                  >
+                  <button
+                    type="button"
+                    class="room-select"
+                    data-room="Classic Oda"
+                  >
+                    Odayı seç ↗
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="room-card">
+              <div class="room-image">
+                <img
+                  src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80"
+                  alt="Geniş ve aydınlık Garden süit"
+                  loading="lazy"
+                />
+                <span class="room-tag">BAHÇEYE AÇILAN</span>
+              </div>
+              <div class="room-content">
+                <div class="room-meta">36 M² · 2 MİSAFİR · ÖZEL TERAS</div>
+                <h3>Garden Süit</h3>
+                <div class="room-bottom">
+                  <span class="price"
+                    >₺7.400 <small>/ geceden başlayan</small></span
+                  >
+                  <button
+                    type="button"
+                    class="room-select"
+                    data-room="Garden Süit"
+                  >
+                    Odayı seç ↗
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="room-card">
+              <div class="room-image">
+                <img
+                  src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80"
+                  alt="Geniş yatağı ve oturma alanıyla Terrace süit"
+                  loading="lazy"
+                />
+                <span class="room-tag">BİRAZ DAHA ÖZEL</span>
+              </div>
+              <div class="room-content">
+                <div class="room-meta">48 M² · 3 MİSAFİR · OTURMA ALANI</div>
+                <h3>Terrace Süit</h3>
+                <div class="room-bottom">
+                  <span class="price"
+                    >₺9.600 <small>/ geceden başlayan</small></span
+                  >
+                  <button
+                    type="button"
+                    class="room-select"
+                    data-room="Terrace Süit"
+                  >
+                    Odayı seç ↗
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="deneyimler">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Hatırlamaya değer</p>
+            <h2 class="section-title">Küçük anlar, kalıcı hisler.</h2>
+          </div>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience">
+            <img
+              src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=85"
+              alt="Taze ürünlerle hazırlanmış kahvaltı masası"
+              loading="lazy"
+            />
+            <div class="experience-copy">
+              <p class="eyebrow">Bahçeden sofraya</p>
+              <h3>Sabahın en güzel saati.</h3>
+              <p>
+                Yerel lezzetler, taze ekmek ve bir fincan daha kahve. Bizce
+                güzel bir günün acelesi olmaz.
+              </p>
+            </div>
+          </article>
+
+          <article class="experience">
+            <img
+              src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=85"
+              alt="Yeşillikler içindeki açık hava havuzu"
+              loading="lazy"
+            />
+            <div class="experience-copy">
+              <p class="eyebrow">Sadece kendin için</p>
+              <h3>Hiçbir şey yapmanın keyfi.</h3>
+              <p>
+                Havuz kenarında bir kitap, gölgede kısa bir uyku. Günün tek
+                planı, iyi hissetmek.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="container">
+          <p class="eyebrow">Bir sonraki güzel anın</p>
+          <h2 class="section-title">Biraz uzaklaş.<br />Kendine yaklaş.</h2>
+          <p>Valizinde birkaç parça eşya. Aklında hiçbir telaş.</p>
+          <a href="#rezervasyon" class="button">
+            Molanı planla <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="iletisim">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="logo" aria-label="Liora House ana sayfa">
+              <span class="logo-name">LIORA</span>
+              <span class="logo-sub">HOUSE · ALAÇATI</span>
+            </a>
+            <p class="footer-note">
+              Ege’nin ruhuyla, özenle.<br />
+              Alaçatı, Çeşme / İzmir
+            </p>
+          </div>
+
+          <div>
+            <p class="footer-title">KEŞFET</p>
+            <div class="footer-links">
+              <a href="#hikayemiz">Hikâyemiz</a>
+              <a href="#odalar">Odalar & Süitler</a>
+              <a href="#deneyimler">Deneyimler</a>
+            </div>
+          </div>
+
+          <div>
+            <p class="footer-title">BİZE YAZ</p>
+            <div class="footer-links">
+              <a href="mailto:hello@liora.example">hello@liora.example</a>
+              <span>İletişim bilgileri örnek amaçlıdır.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span
+            >© <span id="year"></span> Liora House. Konsept web sitesi.</span
+          >
+          <span>Fiyatlar örnektir. Bu demo gerçek rezervasyon almaz.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector("#navigation");
+      const form = document.querySelector("#booking-form");
+      const checkin = document.querySelector("#checkin");
+      const checkout = document.querySelector("#checkout");
+      const guests = document.querySelector("#guests");
+      const status = document.querySelector("#booking-status");
+
+      const capacities = {
+        "Classic Oda": 2,
+        "Garden Süit": 2,
+        "Terrace Süit": 3,
+      };
+
+      let selectedRoom = "";
+
+      function localISO(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      function nextDay(value) {
+        const date = new Date(`${value}T12:00:00`);
+        date.setDate(date.getDate() + 1);
+        return localISO(date);
+      }
+
+      function formatDate(value) {
+        return new Intl.DateTimeFormat("tr-TR", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }).format(new Date(`${value}T12:00:00`));
+      }
+
+      const today = localISO(new Date());
+      checkin.min = today;
+      checkin.value = today;
+      checkout.min = nextDay(today);
+      checkout.value = nextDay(today);
+
+      document.querySelector("#year").textContent = new Date().getFullYear();
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") !== "true";
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        navigation.classList.toggle("open", isOpen);
+      });
+
+      function closeMenu() {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && navigation.classList.contains("open")) {
+          closeMenu();
+          menuButton.focus();
+        }
+      });
+
+      checkin.addEventListener("change", () => {
+        checkout.setCustomValidity("");
+        if (!checkin.value) return;
+
+        checkout.min = nextDay(checkin.value);
+        if (!checkout.value || checkout.value <= checkin.value) {
+          checkout.value = nextDay(checkin.value);
+        }
+      });
+
+      checkout.addEventListener("input", () => {
+        checkout.setCustomValidity("");
+      });
+
+      document.querySelectorAll("[data-room]").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedRoom = button.dataset.room;
+
+          if (Number(guests.value) > capacities[selectedRoom]) {
+            guests.value = String(capacities[selectedRoom]);
+          }
+
+          status.textContent =
+            `${selectedRoom} seçildi. Tarihlerini ve misafir sayısını ` +
+            `belirleyerek demo konaklama planını oluşturabilirsin.`;
+
+          document.querySelector("#rezervasyon").scrollIntoView({
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "instant"
+              : "smooth",
+            block: "center",
+          });
+
+          checkin.focus({ preventScroll: true });
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const currentToday = localISO(new Date());
+        checkin.min = currentToday;
+        checkout.setCustomValidity("");
+
+        if (checkout.value <= checkin.value) {
+          checkout.setCustomValidity(
+            "Çıkış tarihi giriş tarihinden sonra olmalıdır.",
+          );
+        }
+
+        if (!form.reportValidity()) return;
+
+        if (selectedRoom && Number(guests.value) > capacities[selectedRoom]) {
+          status.textContent =
+            `${selectedRoom} en fazla ${capacities[selectedRoom]} misafir ` +
+            `içindir. Misafir sayısını azaltabilir veya Terrace Süit’i seçebilirsin.`;
+          return;
+        }
+
+        const start = new Date(`${checkin.value}T00:00:00Z`);
+        const end = new Date(`${checkout.value}T00:00:00Z`);
+        const nights = Math.round((end - start) / 86400000);
+
+        status.textContent =
+          `Konaklama planın: ${formatDate(checkin.value)} – ` +
+          `${formatDate(checkout.value)}, ${nights} gece, ` +
+          `${guests.value} misafir` +
+          `${selectedRoom ? `, ${selectedRoom}` : ""}. ` +
+          `Bu bir demo özetidir; müsaitlik kontrolü yapılmadı, ` +
+          `rezervasyon oluşturulmadı ve bilgiler gönderilmedi.`;
+      });
+    </script>
+  </body>
+</html>
